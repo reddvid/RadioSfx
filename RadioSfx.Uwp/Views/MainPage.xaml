@@ -1,0 +1,104 @@
+﻿<Page
+    x:Class="RadioSfx.Uwp.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:RadioSfx.Uwp.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:RadioSfx.Uwp"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkitControls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    mc:Ignorable="d">
+    <Page.Resources />
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="8*" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <MediaPlayerElement
+            x:Name="SfxPlayer"
+            AreTransportControlsEnabled="False"
+            IsHitTestVisible="False"
+            Source="{x:Null}" />
+        <ListView HorizontalAlignment="Left" VerticalAlignment="Center">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <TextBlock Text="{Binding}" />
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Width" Value="88" />
+                    <Setter Property="Height" Value="88" />
+                    <Setter Property="Padding" Value="0" />
+                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                    <Setter Property="VerticalContentAlignment" Value="Center" />
+                    <Setter Property="FontSize" Value="24" />
+                    <Setter Property="FontWeight" Value="Black" />
+                    <Setter Property="FontFamily" Value="Arial Nova" />
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListViewItem>1</ListViewItem>
+            <ListViewItem>2</ListViewItem>
+            <ListViewItem>3</ListViewItem>
+            <ListViewItem>4</ListViewItem>
+            <ListViewItem>5</ListViewItem>
+            <ListViewItem>6</ListViewItem>
+            <ListViewItem>7</ListViewItem>
+            <ListViewItem>8</ListViewItem>
+        </ListView>
+
+        <toolkitControls:UniformGrid
+            Grid.Column="1"
+            Columns="4"
+            FirstColumn="0"
+            Orientation="Horizontal"
+            Rows="3">
+            <toolkitControls:UniformGrid.Resources>
+                <Style x:Key="BaseButtonStyle" TargetType="Button">
+                    <Setter Property="HorizontalAlignment" Value="Stretch" />
+                    <Setter Property="VerticalAlignment" Value="Stretch" />
+                    <Setter Property="VerticalContentAlignment" Value="Stretch" />
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                </Style>
+
+                <Style x:Key="InnerGridStyle" TargetType="Grid">
+                    <Setter Property="HorizontalAlignment" Value="Stretch" />
+                    <Setter Property="VerticalAlignment" Value="Stretch" />
+                </Style>
+            </toolkitControls:UniformGrid.Resources>
+            <Button Click="BaseButton_Click" Style="{StaticResource BaseButtonStyle}">
+                <Button.Content>
+                    <Grid Style="{StaticResource InnerGridStyle}">
+                        <TextBlock Text="1" />
+                        <Button
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Bottom"
+                            Click="EditButton_Click"
+                            Content="Edit" />
+                    </Grid>
+                </Button.Content>
+            </Button>
+            <Button Content="2" />
+            <Button Content="3" />
+            <Button Content="4" />
+            <Button Content="5" />
+            <Button Content="6" />
+            <Button Content="7" />
+            <Button Content="8" />
+            <Button Content="9" />
+            <Button Content="10" />
+            <Button Content="11" />
+            <Button Content="12" />
+        </toolkitControls:UniformGrid>
+
+        <Frame Grid.ColumnSpan="3" Visibility="Collapsed">
+            <controls:PopDialog />
+        </Frame>
+    </Grid>
+
+
+</Page>

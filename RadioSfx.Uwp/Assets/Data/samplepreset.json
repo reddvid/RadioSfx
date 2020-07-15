@@ -1,0 +1,15 @@
+﻿[
+  {    
+      "name": "basic",
+      "sfx": [
+        {
+          "name": "laugh",
+          "title": "Chipmunks Laugh"
+        },
+        {
+          "name": "laugh-2",
+          "title": "Man Laughs"
+        }
+      ]    
+  }
+]
